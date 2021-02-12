@@ -12,7 +12,7 @@ h1{
     color: white;
     font-size: 50px;
 }
-.navbarPage > div > a{
+.navbarbuttons > li > a{
     color:white;
     font-size: 20px;
     letter-spacing: 1px;
@@ -37,7 +37,7 @@ header{
     background-color: rgb(27, 32, 26);
 }
     .pageTitle{
-        margin-left: 50px;
+        margin-left: px;
     }
     .navbarPage{
         background: linear-gradient(to right, green 60%, rgb(161, 194, 161));

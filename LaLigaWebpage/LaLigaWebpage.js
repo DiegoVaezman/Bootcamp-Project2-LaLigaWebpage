@@ -13,11 +13,11 @@ for (var i = 0; i < matches.matches.length; i++) {
 
     var img1 = document.createElement("img");
     img1.src = "https://crests.football-data.org/" + matches.matches[i].homeTeam.id  + ".svg";
-    img1.style.width = "30px"
+    img1.style.width = "40px"
     img1.id = "img1"
     var img2 = document.createElement("img");
     img2.src = "https://crests.football-data.org/" + matches.matches[i].awayTeam.id  + ".svg";
-    img2.style.width = "30px"
+    img2.style.width = "40px"
 
 
 
