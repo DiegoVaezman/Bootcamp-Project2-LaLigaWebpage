@@ -1,6 +1,9 @@
 console.log(matches)
 
 
+function tablaResultados(){
+
+
 //Obtengo referencia del elemento tbody
 
 var tbody = document.getElementById("tablebody")
@@ -58,4 +61,6 @@ for (var i = 0; i < matches.matches.length; i++) {
     tbody.append(fila);
 }
 
+}
 
+tablaResultados();

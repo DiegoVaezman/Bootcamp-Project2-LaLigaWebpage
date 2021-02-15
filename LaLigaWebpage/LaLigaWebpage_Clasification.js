@@ -1,5 +1,9 @@
 console.log(standings)
-console.log(standings.standings[0].table[0].form[2])
+
+
+
+function tablaClasificacion(){
+
 //Obtengo referencia del elemento tbody
 
 var tbody = document.getElementById("tablebody")
@@ -105,3 +109,7 @@ for (var i = 0; i < standings.standings[0].table.length; i++) {
 
     tbody.append(fila);
 }
+
+}
+
+tablaClasificacion();

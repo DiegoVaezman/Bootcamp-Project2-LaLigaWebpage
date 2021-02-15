@@ -26,10 +26,10 @@ header{
     width: 100%;
 }
 
-.pageTitle, .navbar{
-    /* margin-right: 30px;
-    margin-left: 30px;               No consigo que la navbar tenga 30px por los lados */
-}
+/* .pageTitle, .navbar{
+    margin-right: 30px;
+    margin-left: 30px;               No consigo que la navbar tenga 30px por los lados 
+} */
 
 .laliga_logo{
     width: 100px;
@@ -111,8 +111,6 @@ table{
     .tableresult > tbody > tr > td:nth-child(1){
         display: none;
     }
-   
-    
     table{
         font-size: 13px;
     }
@@ -120,9 +118,6 @@ table{
 
         font-size: 15px;
         width: 10px;
-    }
-
-    .tableclasif > tbody > tr > td:nth-child(2){
     }
 
 
