@@ -41,44 +41,54 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="LaLigaWebpage_ClasificationBootstrap.html">Clasificación</a>
                 </li>
-
-                <!-- AQUI IRÍA PESTAÑA ESTADISTICAS.... -->
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="LaLigaWebpage_Estadisticas.html">Estadísticas</a>
+                </li>
             </ul>
 
-            <div class="container-md d-flex flex-column align-items-center      tablediv">
-                <div class="d-flex flex-row justify-content-between         tablehead">
-                    <p>RESULTADOS DE LA TEMPORADA</p><p>13/09/2020 - 23/05/2021</p>
-                </div>
-                <div class="container-sm border tabledivint">
-                    <table class="table table-striped table-hover align-middle text-center    tableestadistica1"> 
-                        <thead>
-                            <tr>
-                                <th>Posición</th>
-                                <th>Equipo</th>
-                                <th>Media goles a favor</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tablebodyestadistica1">
-                            
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="container-sm border tabledivint">
-                    <table class="table table-striped table-hover align-middle text-center    tableestadistica2">
-                        <thead>
-                            <tr>
-                                <th>Posición</th>
-                                <th>Equipo</th>
-                                <th>Goles en contra como visitante</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tablebodyestadistica2">
-                    
-                        </tbody>
-                    </table>
-                </div>
+        
+            <div class="container-xl d-flex flex-row     divtwotables">
+                <div class="container-md d-flex flex-column align-items-center      tablediv">
+                    <div class="d-flex flex-row justify-content-between         tablehead">
+                        <p>MEJOR MEDIA DE GOLES A FAVOR</p>
+                    </div>
+                    <div class="container-sm border tabledivint">
+                        <table class="table table-striped table-hover align-middle text-center    tableestadistica">
+                            <thead>
+                                <tr>
+                                    <th>Posición</th>
+                                    <th>Equipo</th>
+                                    <th>Media goles a favor</th>
+                                    <th>Partidos jugados</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyestadistica1">
                 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="container-md d-flex flex-column align-items-center      tablediv">
+                    <div class="d-flex flex-row justify-content-between         tablehead">
+                        <p>MENOS GOLES EN CONTRA COMO VISITANTE</p>
+                    </div>
+                    <div class="container-sm border tabledivint">
+                        <table class="table table-striped table-hover align-middle text-center    tableestadistica">
+                            <thead>
+                                <tr>
+                                    <th>Posición</th>
+                                    <th>Equipo</th>
+                                    <th>Goles en contra como visitante</th>
+                                    <th>Partidos jugados</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyestadistica2">
+                
+                            </tbody>
+                        </table>
+                    </div>
+                
+                </div>
             </div>
     
         </main>

@@ -48,6 +48,12 @@ header{
     width: 80%;
     margin:60px auto 40px auto;
 }
+
+
+
+
+
+
 .tablehead{
     width: 100%;
 }
@@ -57,13 +63,22 @@ header{
     overflow-y:scroll;
     padding:0;
 }
+
+
+.divtwotables > .tablediv > .tabledivint{
+    height: 400px
+}
+
+
+
 table{
     width: 100%;
+    height: 100%;
 }
 .tablehead > p{
     font-size: 18px;
 }
-.tableclasif > tbody > tr > td:nth-child(2){
+.tableclasif > tbody > tr > td:nth-child(2), .tableestadistica > tbody > tr > td:nth-child(2){
     text-align: left;
 }
 
@@ -95,6 +110,7 @@ table{
 
 
 
+
 @media (max-width: 768px){
  
 
@@ -118,6 +134,9 @@ table{
 
         font-size: 15px;
         width: 10px;
+    }
+    .divtwotables{
+        flex-direction: column;   /*NO CONSIGO PONER LAS DOS TABLAS DE ESTADISTICA EN COLUMNA EN VENTANA PEQUEÑA*/
     }
 
 
