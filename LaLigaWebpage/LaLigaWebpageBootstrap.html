@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="LaLigaWebpageBootstrap.css">
 </head>
 <body>
-    <header class="d-flex flex-column justify-content-end">
-        <div class="container-md d-flex align-items-baseline     pageTitle">
+    <header class="container-fluid d-flex flex-column align-items-center">
+        <div class="col-11 d-flex align-items-baseline     pageTitle">
             <h1>LA LIGA</h1> <h2>Resultados</h2>
         </div>
     
-        <nav class="container-md   navbar navbar-expand-md ">
+        <nav class="col-11   navbar navbar-expand-md ">
             <div class="container-fluid">
               <a class="navbar-brand" href="#"><img class="laliga_logo" src="../img/laliga_logo.png" alt="LaLiga_Logo"></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,9 +31,10 @@
     
         </header>
 
+
         <main class="d-flex flex-column">
 
-            <ul class="nav nav-tabs">
+            <ul class="col-11 nav nav-tabs">
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="LaLigaWebpageBootstrap.html">Resultados</a>
                 </li>
@@ -45,21 +46,58 @@
                 </li>
             </ul>
 
+            
+
             <div class="container-md d-flex flex-column align-items-center      tablediv">
-                <div class="d-flex flex-row justify-content-between         tablehead">
+                <div class="d-flex flex-row justify-content-between border-bottom         tablehead">
                     <p>RESULTADOS DE LA TEMPORADA</p><p>13/09/2020 - 23/05/2021</p>
                 </div>
-                <div class="container-sm border tabledivint">
+                <form class="d-flex justify-content-between col-12 t-1" id="form">
+                    <div class="col-3 d-flex flex-column justify-content-center">
+                        <label for="searchText" class="form-label">Equipo:</label>
+                        <input type="text" id="searchText" class="form-control" list="datalist" required>
+                            <datalist id="datalist">
+                                <option>Todos los equipos</option>
+                            </datalist>
+                        <div class="form-text">
+                            Escribe o selecciona el equipo de fútbol a buscar.
+                        </div>
+                    </div>
+                    <div class="col-5 d-flex align-items-center justify-content-around">
+                        <div class="form-check col-3">
+                            <input type="radio" id="ganados" name="resultado" value="ganados" class="btn-check" >
+                            <label for="ganados" class="btn btn-outline-dark col-12">Ganados</label>
+                        </div>
+                        <div class="form-check col-3">
+                            <input type="radio" id="perdidos" name="resultado" value="perdidos" class="btn-check">
+                            <label for="perdidos" class="btn btn-outline-dark col-12">Perdidos</label>
+                        </div>
+                        <div class="form-check col-3">
+                            <input type="radio" id="empatados" name="resultado" value="empatados" class="btn-check">
+                            <label for="empatados" class="btn btn-outline-dark col-12">Empatados</label>
+                        </div>
+                        <div class="form-check col-3">
+                            <input type="radio" id="pendientes" name="resultado" value="pendientes" class="btn-check">
+                            <label for="pendientes" class="btn btn-outline-dark col-12">Pendientes</label>
+                        </div>
+                    </div>
+                    <div class="col-2 d-flex justify-content-between align-items-center">
+                        <button type="button" id="resetbutton" class="btn btn-outline-warning col-5">Borrar</button>
+                        <button type="button" id="searchbutton" class="btn btn-outline-primary col-5">Buscar</button>
+                    </div>
+                </form>
+                <div class="border tabledivint">
                     <table class="table table-striped table-hover align-middle text-center    tableresult"> 
-                        <thead>
+                        <thead class="table-dark">
                             <tr>
                                 <th>Fecha</th>
                                 <th>Equipo Anfitrión</th>
                                 <th>Resultado</th>
                                 <th>Equipo Visitante</th>
+                                <th>Hora</th>
                             </tr>
                         </thead>
-                        <tbody id="tablebody">
+                        <tbody id="tablebody_resultados">
                             
                         </tbody>
                     </table>

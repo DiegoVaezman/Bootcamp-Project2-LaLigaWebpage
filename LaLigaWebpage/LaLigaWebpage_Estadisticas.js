@@ -1,43 +1,5 @@
 console.log(standings)
 
-// //------------------PRUEBA-------------------
-
-// var arrayprueba = [
-//     {id:1, name:"carlos"},
-//     {id:2, name:"pablo"},
-//     {id:4, name:"antonio"}
-// ]
-
-// if ((arrayprueba.find(num => num["id"] == 3)) == undefined){
-//     arrayprueba.push({id:3, name:"pedro"})
-// }
-// console.log(arrayprueba)
-// console.log("despues")
-// var arrayaordenar = arrayprueba.slice(0)
-// arrayaordenar.sort(function(a, b){return b.id-a.id});
-// console.log(arrayaordenar)
-
-
-// //-----------------PRUEBA-------------------
-
-// var countaway = 0
-// var counthome = 0
-// for (i=0;i<matches.matches.length;i++){
-//     if (matches.matches[i].status == "FINISHED"){
-//         if (matches.matches[i].awayTeam.id == 79){
-//             countaway ++
-//         }
-//         if (matches.matches[i].homeTeam.id == 79){
-//             counthome ++
-//         }
-//     }
-// }
-//console.log(counthome)
-//console.log(countaway)
-//console.log(counthome+countaway)
-
-
-
 
 function estadistica(data){
 
@@ -130,10 +92,10 @@ for (r=0;r<5;r++){
 
     var imgaverage = document.createElement("img");
     imgaverage.src = "https://crests.football-data.org/" + arrayOrdenadaAverage[r].id  + ".svg";
-    imgaverage.style.width = "40px"
+    imgaverage.style.width = "30px"
     var imggoalsCvisit = document.createElement("img");
     imggoalsCvisit.src = "https://crests.football-data.org/" + arrayOrdenadaGolesCVisit[r].id  + ".svg";
-    imggoalsCvisit.style.width = "40px"
+    imggoalsCvisit.style.width = "30px"
 
 
     for (t=0;t<4;t++){
