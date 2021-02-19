@@ -6,6 +6,9 @@
 
 /*---------------------------------------*/
 
+body{
+    font-family: sans-serif;
+}
 
 h1, h2{
     color: white;
@@ -38,9 +41,13 @@ header{
     background: linear-gradient(to right, green 60%, rgb(161, 194, 161));
     font-size: 20px;
 }
-.nav-link{
-    color: white;
+.tableslinks > li > a{
+    color: black;
 }
+.headerlinks > a{
+    color:white;
+}
+
 .navbar-nav > a:hover{
     color: yellow;
 }
@@ -52,7 +59,8 @@ header{
     margin-left: 1px;
 }
 form{
-    margin:0px auto 20px auto;
+    height: 60px;
+    margin:50px auto 20px auto;
 }
 
 
@@ -86,7 +94,7 @@ table{
     width: 100%;
     height: 100%;
 }
-.tablehead > p{
+.tablehead > p, .tableclasif > tbody .tableestadistica > tbody{
     font-size: 18px;
 }
 
@@ -94,15 +102,23 @@ table{
     text-align: left;
 }
 
+
+.tableresult > tbody > tr > td:nth-child(1), .tableresult > tbody > tr > td:nth-child(5){
+    width: 20%;
+    background-color: rgba(65, 64, 64, 0.288);
+}
 .tableresult > tbody > tr > td:nth-child(3){
     text-align: center;
     font-size: 20px;
+    width: 10%;
 }
 .tableresult > tbody > tr > td:nth-child(2){
     text-align: right;
+    font-size: 18px;
 }
 .tableresult > tbody > tr > td:nth-child(4){
     text-align: left;
+    font-size: 18px;
 }
 
 
@@ -110,8 +126,8 @@ table{
     height: 40px;
 }
 .icons, .legend > img{
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     margin-right: 3px;
 }
 

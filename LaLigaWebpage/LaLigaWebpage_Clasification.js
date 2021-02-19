@@ -1,8 +1,34 @@
-console.log(standings)
+
+//FUNCIÓN LLAMADA A LA API
+
+function getDataFetch(){
+    const url = "https://api.football-data.org/v2/competitions/2014/standings";
+    fetch(url, {
+        method: "GET",
+        headers: {
+            "X-Auth-Token": "a9a0dfd78a8244f791860c965905d84f"
+        }
+    })
+    .then(response => {
+        if (response.ok);
+        return response.json();
+    })
+    .then(data => {
+        tablaClasificacion(data);
+    })
+}
+
+//LLAMADA DE API AL CARGAR EL HTML
+
+document.addEventListener("DOMContentLoaded", function() {
+    getDataFetch();
+  });
 
 
 
-function tablaClasificacion(){
+
+
+function tablaClasificacion(data){
 
 //Obtengo referencia del elemento tbody
 
@@ -11,11 +37,11 @@ var tbody = document.getElementById("tablebody")
 
 //Creo filas (tr) y las imagenes que irán en cada fila. Por ultimo meto las filas en tbody
 
-for (var i = 0; i < standings.standings[0].table.length; i++) {
+for (var i = 0; i < data.standings[0].table.length; i++) {
     var fila = document.createElement("tr");
 
     var img1 = document.createElement("img");
-    img1.src = standings.standings[0].table[i].team.crestUrl;
+    img1.src = data.standings[0].table[i].team.crestUrl;
     img1.style.width = "40px"
 
 
@@ -33,44 +59,44 @@ for (var i = 0; i < standings.standings[0].table.length; i++) {
         //var textoCeldaFuera = "";
 
         if (j==0){
-            textoCeldaTotales = document.createTextNode(standings.standings[0].table[i].position)
+            textoCeldaTotales = document.createTextNode(data.standings[0].table[i].position)
             celdaTotales.appendChild(textoCeldaTotales);
         }
         if (j==1){
             celdaTotales.append(img1)
-            textoCeldaTotales = document.createTextNode(standings.standings[0].table[i].team.name)
+            textoCeldaTotales = document.createTextNode(data.standings[0].table[i].team.name)
             celdaTotales.appendChild(textoCeldaTotales);
         }
         if (j==2){
-            textoCeldaTotales = document.createTextNode(standings.standings[0].table[i].playedGames)
+            textoCeldaTotales = document.createTextNode(data.standings[0].table[i].playedGames)
             celdaTotales.appendChild(textoCeldaTotales);
         }
         if (j==3){
-            textoCeldaTotales = document.createTextNode(standings.standings[0].table[i].playedGames - standings.standings[0].table[i].lost)
+            textoCeldaTotales = document.createTextNode(data.standings[0].table[i].playedGames - data.standings[0].table[i].lost)
             celdaTotales.append(textoCeldaTotales)
         }
         if (j==4){
-            textoCeldaTotales = document.createTextNode(standings.standings[0].table[i].draw)
+            textoCeldaTotales = document.createTextNode(data.standings[0].table[i].draw)
             celdaTotales.append(textoCeldaTotales)
         }
         if (j==5){
-            textoCeldaTotales = document.createTextNode(standings.standings[0].table[i].lost)
+            textoCeldaTotales = document.createTextNode(data.standings[0].table[i].lost)
             celdaTotales.append(textoCeldaTotales)
         }
         if (j==6){
-            textoCeldaTotales = document.createTextNode(standings.standings[0].table[i].goalsFor)
+            textoCeldaTotales = document.createTextNode(data.standings[0].table[i].goalsFor)
             celdaTotales.append(textoCeldaTotales)
         }
         if (j==7){
-            textoCeldaTotales = document.createTextNode(standings.standings[0].table[i].goalsAgainst)
+            textoCeldaTotales = document.createTextNode(data.standings[0].table[i].goalsAgainst)
             celdaTotales.append(textoCeldaTotales)
         }
         if (j==8){
-            textoCeldaTotales = document.createTextNode(standings.standings[0].table[i].goalDifference)
+            textoCeldaTotales = document.createTextNode(data.standings[0].table[i].goalDifference)
             celdaTotales.append(textoCeldaTotales)
         }
         if (j==9){
-            textoCeldaTotales = document.createTextNode(standings.standings[0].table[i].points)
+            textoCeldaTotales = document.createTextNode(data.standings[0].table[i].points)
             celdaTotales.append(textoCeldaTotales)
         }
         if (j==10){
@@ -89,15 +115,15 @@ for (var i = 0; i < standings.standings[0].table.length; i++) {
 
                 var icon = document.createElement("img");
                 
-                if (standings.standings[0].table[i].form[d]=="D"){
+                if (data.standings[0].table[i].form[d]=="D"){
                     icon.src="../img/icon_grey.svg";
                     icon.className = "icons";
                 }
-                if (standings.standings[0].table[i].form[d]=="W"){
+                if (data.standings[0].table[i].form[d]=="W"){
                     icon.src="../img/icon_green.svg";
                     icon.className = "icons"
                 }
-                if (standings.standings[0].table[i].form[d]=="L"){
+                if (data.standings[0].table[i].form[d]=="L"){
                     icon.src="../img/icon_red.svg";
                     icon.className = "icons"
                 }
@@ -114,4 +140,3 @@ for (var i = 0; i < standings.standings[0].table.length; i++) {
 
 }
 
-tablaClasificacion();

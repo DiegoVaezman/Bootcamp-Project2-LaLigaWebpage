@@ -20,7 +20,7 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
+                <div class="navbar-nav        headerlinks">
                   <a class="nav-link active" aria-current="page" href="#">Home</a>
                   <a class="nav-link" href="#">Tablas</a>
                   <a class="nav-link" href="#">Equipos</a>
@@ -34,15 +34,15 @@
 
         <main class="d-flex flex-column">
 
-            <ul class="col-11 nav nav-tabs">
+            <ul class="col-11 nav nav-tabs        tableslinks">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="LaLigaWebpageBootstrap.html">Resultados</a>
+                  <a class="nav-link active" href="LaLigaWebpageBootstrap.html">Resultados</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="LaLigaWebpage_ClasificationBootstrap.html">Clasificación</a>
+                    <a class="nav-link" href="LaLigaWebpage_ClasificationBootstrap.html">Clasificación</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="LaLigaWebpage_Estadisticas.html">Estadísticas</a>
+                    <a class="nav-link" href="LaLigaWebpage_Estadisticas.html">Estadísticas</a>
                 </li>
             </ul>
 
@@ -50,12 +50,12 @@
 
             <div class="container-md d-flex flex-column align-items-center      tablediv">
                 <div class="d-flex flex-row justify-content-between border-bottom         tablehead">
-                    <p>RESULTADOS DE LA TEMPORADA</p><p>13/09/2020 - 23/05/2021</p>
+                    <p class="fw-bolder">RESULTADOS DE LA TEMPORADA</p><p class="fw-bolder">13/09/2020 - 23/05/2021</p>
                 </div>
-                <form class="d-flex justify-content-between col-12 t-1" id="form">
-                    <div class="col-3 d-flex flex-column justify-content-center">
-                        <label for="searchText" class="form-label">Equipo:</label>
-                        <input type="text" id="searchText" class="form-control" list="datalist" required>
+                <form class="d-flex justify-content-between col-12" id="form">
+                    <div class="col-3 d-flex flex-column justify-content-start">
+                        
+                        <input type="text" id="searchText" class="form-control" list="datalist" placeholder="Filtro por equipos.">
                             <datalist id="datalist">
                                 <option>Todos los equipos</option>
                             </datalist>
@@ -63,7 +63,7 @@
                             Escribe o selecciona el equipo de fútbol a buscar.
                         </div>
                     </div>
-                    <div class="col-5 d-flex align-items-center justify-content-around">
+                    <div class="col-5 d-flex align-items-start justify-content-around">
                         <div class="form-check col-3">
                             <input type="radio" id="ganados" name="resultado" value="ganados" class="btn-check" >
                             <label for="ganados" class="btn btn-outline-dark col-12">Ganados</label>
@@ -81,9 +81,9 @@
                             <label for="pendientes" class="btn btn-outline-dark col-12">Pendientes</label>
                         </div>
                     </div>
-                    <div class="col-2 d-flex justify-content-between align-items-center">
+                    <div class="col-2 d-flex justify-content-between align-items-start">
                         <button type="button" id="resetbutton" class="btn btn-outline-warning col-5">Borrar</button>
-                        <button type="button" id="searchbutton" class="btn btn-outline-primary col-5">Buscar</button>
+                        <button type="button" id="searchbutton" class="btn btn-outline-primary col-5">Filtrar</button>
                     </div>
                 </form>
                 <div class="border tabledivint">

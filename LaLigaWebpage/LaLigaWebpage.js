@@ -1,8 +1,37 @@
-console.log(matches)
+//LLAMADA A LA API
+
+function getDataFetch(){
+    const url = "https://api.football-data.org/v2/competitions/2014/matches";
+    fetch(url, {
+        method: "GET",
+        headers: {
+            "X-Auth-Token": "a9a0dfd78a8244f791860c965905d84f"
+        }
+    })
+    .then(response => {
+        if (response.ok);
+        return response.json();
+    })
+    .then(data => {
+        addOptions("datalist", listaEquipos(data));
+        tablaResultados(data);
+    })
+}
+
+
 
 //ASIGNACIÓN DE FUNCIONES A BOTONES
-document.getElementById("searchbutton").addEventListener("click", function(){tablaResultados(matches)})
-document.getElementById("resetbutton").addEventListener("click", function(){resetfilters()})
+document.addEventListener("DOMContentLoaded", function() {
+    getDataFetch();
+  });
+document.getElementById("searchbutton").addEventListener("click", function(e){
+    e.preventDefault();  //evita que se recargue la página al filtrar por estar en formulario <form>los inputs de filtrado
+    tablaResultados(matches);
+})
+document.getElementById("resetbutton").addEventListener("click", function(e){
+    e.preventDefault();
+    resetfilters();
+})
 
 
 
@@ -61,37 +90,20 @@ function addOptions(selectId, array){
 //FUNCIÓN QUE FILTRA LA INFORMACIÓN DEL DOCUMENTO. ESTA FUNCIÓN ES LLAMADA DENTRO DE LA FUNCIÓN tablaResultado()
 
 function filters(data){
-
+    console.log("emppieza a filtrar")
     //Creo/vacío la variable filteredTable y tomo referencias de elementos del html
     
     var filteredTable = [];
-
     var textInput = document.getElementById("searchText").value.toLowerCase();
-    // var radiobuttons = document.getElementsByName("resultado");
-    // var radioganados = document.getElementById("ganados");
-    // var radioperdidos = document.getElementById("perdidos");
-
-
-    //Desactivo los radio buttons 
-    // for (value in radiobuttons){
-    //     radiobuttons[value].disabled = true;
-    // }
 
 
     //Si no hay texto que buscar o "todos los partidos" la info será todo el doc y se deshabilitan dos radiobuttons.  Si hay texto me filtra con los nombres que contienen el texto
     if (textInput == "" || textInput == "Todos los equipos"){
-        // if (textInput == "todos los equipos"){
-        //     radioganados.disabled = false;
-        //     radioperdidos.disabled = false;
-        // }
         filteredTable = data.matches;
     }
     else {
-        //activo los radio buttons
-        // for (value in radiobuttons){
-        //     radiobuttons[value].disabled = false;
-        // }
         filteredTable = data.matches.filter(equipo => equipo.homeTeam.name.toLowerCase().includes(textInput) || equipo.awayTeam.name.toLowerCase().includes(textInput));
+        console.log(filteredTable)
     }
 
     
@@ -182,7 +194,6 @@ function tablaResultados(data){
         }
         tbody.append(fila);
     }
-
 }
 
 
@@ -190,8 +201,8 @@ function tablaResultados(data){
 
 
 //ejecuto addOptions para crear la lista desplegable, seleccionando como parámetro el objeto html y la lista de equipos obtenida por ejecutar la funcion listaEquipos
-addOptions("datalist", listaEquipos(matches))
+
 
 //ejecuto tablaResultados con el documento como parámetro para crear la tabla. Dentro de la función pasará por los filtros.
-tablaResultados(matches)
+
 

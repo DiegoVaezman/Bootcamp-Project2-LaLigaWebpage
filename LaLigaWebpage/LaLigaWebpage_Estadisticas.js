@@ -1,5 +1,31 @@
-console.log(standings)
+//FUNCIÓN LLAMADA A LA API
 
+function getDataFetch(){
+    const url = "https://api.football-data.org/v2/competitions/2014/matches";
+    fetch(url, {
+        method: "GET",
+        headers: {
+            "X-Auth-Token": "a9a0dfd78a8244f791860c965905d84f"
+        }
+    })
+    .then(response => {
+        if (response.ok);
+        return response.json();
+    })
+    .then(data => {
+        estadistica(data);
+    })
+}
+
+
+//LLAMADA DE API AL CARGAR EL HTML
+document.addEventListener("DOMContentLoaded", function() {
+    getDataFetch();
+  });
+
+
+
+//FUNCIÓN PARA LAS ESTADÍSTICAS A PARTIR DEL DOCUMENTO MATCHES
 
 function estadistica(data){
 
@@ -141,7 +167,3 @@ for (r=0;r<5;r++){
 //FIN STATISTICSTABLE()
 }
 
-
-
-
-estadistica(matches)
