@@ -2,6 +2,7 @@
 //FUNCIÓN LLAMADA A LA API
 
 function getDataFetch(){
+    displayLoader();
     const url = "https://api.football-data.org/v2/competitions/2014/standings";
     fetch(url, {
         method: "GET",
@@ -14,9 +15,25 @@ function getDataFetch(){
         return response.json();
     })
     .then(data => {
+        hideLoader();
         tablaClasificacion(data);
     })
 }
+
+
+//FUNCIÓN PARA OCULTAR LOADER
+function displayLoader(){
+    const loaderdiv = document.getElementById("loaderimg");
+    loaderdiv.classList.add("display");
+    //timeout???
+}
+//FUNCIÓN PARA MOSTRAR LOADER
+function hideLoader(){
+    const loaderdiv = document.getElementById("loaderimg");
+    loaderdiv.classList.remove("display");
+}
+
+
 
 //LLAMADA DE API AL CARGAR EL HTML
 

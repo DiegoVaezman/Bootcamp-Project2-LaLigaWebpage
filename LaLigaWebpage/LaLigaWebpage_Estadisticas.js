@@ -1,6 +1,7 @@
 //FUNCIÓN LLAMADA A LA API
 
 function getDataFetch(){
+    displayLoader();
     const url = "https://api.football-data.org/v2/competitions/2014/matches";
     fetch(url, {
         method: "GET",
@@ -13,9 +14,28 @@ function getDataFetch(){
         return response.json();
     })
     .then(data => {
+        hideLoader();
         estadistica(data);
     })
 }
+
+
+//FUNCIÓN PARA OCULTAR LOADER
+function displayLoader(){
+    const loaderdiv = document.getElementById("loaderimg");
+    const loaderdiv1 = document.getElementById("loaderimg1");
+    loaderdiv.classList.add("display");
+    loaderdiv1.classList.add("display");
+    //timeout???
+}
+//FUNCIÓN PARA MOSTRAR LOADER
+function hideLoader(){
+    const loaderdiv = document.getElementById("loaderimg");
+    const loaderdiv1 = document.getElementById("loaderimg1");
+    loaderdiv.classList.remove("display");
+    loaderdiv1.classList.remove("display");
+}
+
 
 
 //LLAMADA DE API AL CARGAR EL HTML

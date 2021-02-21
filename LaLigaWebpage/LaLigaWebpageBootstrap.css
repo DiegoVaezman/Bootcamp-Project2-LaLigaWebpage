@@ -29,10 +29,6 @@ header{
     width: 100%;
 }
 
-/* .pageTitle, .navbar{
-    margin-right: 30px;
-    margin-left: 30px;               No consigo que la navbar tenga 30px por los lados 
-} */
 
 .laliga_logo{
     width: 100px;
@@ -75,9 +71,6 @@ form{
 }
 
 
-/* .divtwotables{
-    justify-content: center;
-} */
 .divtwotables > .tablediv{
     /* width: 40%; */
     margin-right: 50px;
@@ -124,15 +117,36 @@ table{
 
 .legend{
     height: 40px;
+    margin-top: 10px;
 }
-.icons, .legend > img{
+.legend > div{
+    margin-right: 10px;
+}
+.icons, .legend >div > img{
     width: 25px;
     height: 25px;
     margin-right: 3px;
 }
 
 
-
+#loaderimg, #loaderimg1{
+    margin-top: 16%;
+    width: 70px;
+    height: 70px;
+    animation: rotation 1s infinite linear;
+    display: none;
+}
+#loaderimg.display, #loaderimg1.display{
+    display: block;
+}
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
 
 
 

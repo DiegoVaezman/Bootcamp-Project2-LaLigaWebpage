@@ -1,6 +1,7 @@
 //LLAMADA A LA API
 
 function getDataFetch(){
+    displayLoader();
     const url = "https://api.football-data.org/v2/competitions/2014/matches";
     fetch(url, {
         method: "GET",
@@ -13,6 +14,7 @@ function getDataFetch(){
         return response.json();
     })
     .then(data => {
+        hideLoader();
         addOptions("datalist", listaEquipos(data));
         tablaResultados(data);
     })
@@ -32,6 +34,22 @@ document.getElementById("resetbutton").addEventListener("click", function(e){
     e.preventDefault();
     resetfilters();
 })
+
+
+
+//FUNCIÓN PARA OCULTAR LOADER
+function displayLoader(){
+    const loaderdiv = document.getElementById("loaderimg");
+    loaderdiv.classList.add("display");
+    //timeout???
+}
+
+//FUNCIÓN PARA MOSTRAR LOADER
+function hideLoader(){
+    const loaderdiv = document.getElementById("loaderimg");
+    loaderdiv.classList.remove("display");
+}
+
 
 
 
