@@ -43,7 +43,6 @@ function displayLoader(){
     loaderdiv.classList.add("display");
     //timeout???
 }
-
 //FUNCIÓN PARA MOSTRAR LOADER
 function hideLoader(){
     const loaderdiv = document.getElementById("loaderimg");
@@ -62,7 +61,6 @@ function resetfilters(){
         radiobuttons[value].checked = false;
     }
 }
-
 
 
 

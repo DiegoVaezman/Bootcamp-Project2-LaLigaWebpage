@@ -24,7 +24,7 @@ h1, h2{
 
 header{
     border: 2px solid black;
-    height: 150px;
+    height: 140px;
     background-color: rgb(27, 32, 26);
     width: 100%;
 }
@@ -34,21 +34,16 @@ header{
     width: 100px;
 }
 .navbar{
-    background: linear-gradient(to right, green 60%, rgb(161, 194, 161));
-    font-size: 20px;
+    background: linear-gradient(to right, rgb(27, 32, 26) 60%, rgba(1, 197, 1, 0.74));
+    
 }
+
+
 .tableslinks > li > a{
     color: black;
 }
-.headerlinks > a{
-    color:white;
-}
 
-.navbar-nav > a:hover{
-    color: yellow;
-}
 .nav{
-    /* width: 80%; */
     margin:60px auto 40px auto;
 }
 .nav-item{
@@ -58,6 +53,11 @@ form{
     height: 60px;
     margin:50px auto 20px auto;
 }
+
+.radiodiv{
+    min-width: fit-content;
+}
+
 
 
 .tablehead{
@@ -122,6 +122,8 @@ table{
 .legend > div{
     margin-right: 10px;
 }
+
+
 .icons, .legend >div > img{
     width: 25px;
     height: 25px;
@@ -150,7 +152,35 @@ table{
 
 
 
-@media (max-width: 768px){
+@media (max-width: 990px){
+    
+    header{
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    .navbar{
+        width: 100%;
+    }
+        
+    .form-text{
+        display: none;
+    }
+    .radiodiv > label, .formbutton, #searchText{
+        padding: 0;
+    }
+    .radiodiv{
+        padding-left: 1rem;
+    }
+
+    .tableresult > thead > tr > th:nth-child(1),.tableresult > thead > tr > th:nth-child(5), .tableresult > tbody > tr > td:nth-child(1), .tableresult > tbody > tr > td:nth-child(5){
+        display: none;
+    }
+    
+    .icons, .legend >div > img{
+        width: 15px;
+        height: 15px;
+        margin-right: 1px;
+    }
  
 
 
@@ -160,12 +190,7 @@ table{
     .tablehead > p{
         font-size: 13px;    
     }
-    .tableresult > thead > tr > th:nth-child(1){
-        display: none;
-    }
-    .tableresult > tbody > tr > td:nth-child(1){
-        display: none;
-    }
+
     table{
         font-size: 13px;
     }
@@ -188,4 +213,45 @@ table{
     }
 
 
+@media (max-width: 576px){
 
+    form{
+        height: 100px;
+        margin:20px auto 20px auto;
+
+
+        flex-direction: column;
+        align-content: flex-start;
+    }
+    .formcontroldiv, .formbuttondiv, .formbutton{
+        width: 50%;
+    }
+
+    .radiodivgroup{
+        width: 100%;
+    }
+    .radiodiv{
+        padding: 0;
+    }
+
+
+
+    .tableresult > tbody > tr > td:nth-child(2), .tableresult > tbody > tr > td:nth-child(4){
+        font-size: 13px;
+    }
+
+
+
+}
+
+
+
+@media (max-width: 375px){
+
+    .nav-item{
+        font-size: 13px;
+    }
+    .tablehead > p{
+        width: 50%;
+    }
+}
