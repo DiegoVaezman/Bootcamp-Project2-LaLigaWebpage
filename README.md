@@ -1,4 +1,4 @@
-# La Liga app v0.1
+# La Liga Webpage v0.1
 
 ![Laliga_logo](../img/laliga_logo.png =550x200)
 
@@ -43,7 +43,7 @@ Las características principales de la página web son las siguientes:
 
 ## Versiones
 
-v1.0 Proyecto presentado
+v0.1 Proyecto presentado
 
 
 ## TO-DO
