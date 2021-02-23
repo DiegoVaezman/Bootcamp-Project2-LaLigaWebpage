@@ -43,108 +43,82 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
+//FUNCIÓN QUE CREA LA TABLA DE CLASIFICACION
 
 function tablaClasificacion(data){
 
-//Obtengo referencia del elemento tbody
+    //Obtengo referencia del elemento tbody y creo una array donde recogeré toda la info que necesito. (array de arrays)
 
-var tbody = document.getElementById("tablebody")
+    var tbody = document.getElementById("tablebody")
+    var arrayInfo = [];
 
+    //Agrego a la array la información que voy a necesitar.
 
-//Creo filas (tr) y las imagenes que irán en cada fila. Por ultimo meto las filas en tbody
+    for (var i = 0; i < data.standings[0].table.length; i++) {
 
-for (var i = 0; i < data.standings[0].table.length; i++) {
-    var fila = document.createElement("tr");
-
-    var img1 = document.createElement("img");
-    img1.src = data.standings[0].table[i].team.crestUrl;
-    img1.style.width = "40px"
-
-
-
-    // Creo cada celda con la información que deben contener
-
-    for (var j = 0; j < 11; j++) {
-
-        var celdaTotales = document.createElement("td");
-        var textoCeldaTotales = "";
-        //if (j==2 || j==9){
-        //var celdaEncasa = document.createElement("td");
-        //var celdaFuera = document.createElement("td");
-        //var textoCeldaEncasa = "";
-        //var textoCeldaFuera = "";
-
-        if (j==0){
-            textoCeldaTotales = document.createTextNode(data.standings[0].table[i].position)
-            celdaTotales.appendChild(textoCeldaTotales);
-        }
-        if (j==1){
-            celdaTotales.append(img1)
-            textoCeldaTotales = document.createTextNode(data.standings[0].table[i].team.name)
-            celdaTotales.appendChild(textoCeldaTotales);
-        }
-        if (j==2){
-            textoCeldaTotales = document.createTextNode(data.standings[0].table[i].playedGames)
-            celdaTotales.appendChild(textoCeldaTotales);
-        }
-        if (j==3){
-            textoCeldaTotales = document.createTextNode(data.standings[0].table[i].playedGames - data.standings[0].table[i].lost)
-            celdaTotales.append(textoCeldaTotales)
-        }
-        if (j==4){
-            textoCeldaTotales = document.createTextNode(data.standings[0].table[i].draw)
-            celdaTotales.append(textoCeldaTotales)
-        }
-        if (j==5){
-            textoCeldaTotales = document.createTextNode(data.standings[0].table[i].lost)
-            celdaTotales.append(textoCeldaTotales)
-        }
-        if (j==6){
-            textoCeldaTotales = document.createTextNode(data.standings[0].table[i].goalsFor)
-            celdaTotales.append(textoCeldaTotales)
-        }
-        if (j==7){
-            textoCeldaTotales = document.createTextNode(data.standings[0].table[i].goalsAgainst)
-            celdaTotales.append(textoCeldaTotales)
-        }
-        if (j==8){
-            textoCeldaTotales = document.createTextNode(data.standings[0].table[i].goalDifference)
-            celdaTotales.append(textoCeldaTotales)
-        }
-        if (j==9){
-            textoCeldaTotales = document.createTextNode(data.standings[0].table[i].points)
-            celdaTotales.append(textoCeldaTotales)
-        }
-        if (j==10){
-            var d=0;
-            for (m=0;m<5;m++){
-
-                var icon = document.createElement("img");
-                
-                if (data.standings[0].table[i].form[d]=="D"){
-                    icon.src="../img/icon_grey.svg";
-                    icon.className = "icons";
-                }
-                if (data.standings[0].table[i].form[d]=="W"){
-                    icon.src="../img/icon_green.svg";
-                    icon.className = "icons"
-                }
-                if (data.standings[0].table[i].form[d]=="L"){
-                    icon.src="../img/icon_red.svg";
-                    icon.className = "icons"
-                }
-                d = d+2;
-                celdaTotales.append(icon);
-                celdaTotales.classList.add("iconsdiv");
-            }
-            
-        }
-        fila.appendChild(celdaTotales);
+        var tableInfo = data.standings[0].table;
+        arrayInfo.push([
+            tableInfo[i].position,
+            [tableInfo[i].team.name, tableInfo[i].team.crestUrl],
+            tableInfo[i].playedGames,
+            tableInfo[i].playedGames - data.standings[0].table[i].lost,
+            tableInfo[i].draw,
+            tableInfo[i].lost,
+            tableInfo[i].goalsFor,
+            tableInfo[i].goalsAgainst,
+            tableInfo[i].goalDifference,
+            tableInfo[i].points,
+            tableInfo[i].form
+        ])
     }
 
-    tbody.append(fila);
-}
 
+    //Coloco la información de la array en celdas dentro de filas y estas dentro de tbody. Agrego img al nombre e iconos de cinco últimos.
+    
+    for (j=0; j<arrayInfo.length; j++){
+        var fila = document.createElement("tr");
+
+        for (h=0; h<arrayInfo[j].length; h++){
+            var celdaTotales = document.createElement("td");
+
+            if (h==10){
+                var d=0;
+                for (m=0;m<5;m++){
+                    var icon = document.createElement("img");
+                    var ultimos = arrayInfo[j][10];
+
+                    if (ultimos[d]=="D"){
+                        icon.src="../img/icon_grey.svg";
+                        icon.className = "icons";
+                    }
+                    if (ultimos[d]=="W"){
+                        icon.src="../img/icon_green.svg";
+                        icon.className = "icons"
+                    }
+                    if (ultimos[d]=="L"){
+                        icon.src="../img/icon_red.svg";
+                        icon.className = "icons"
+                    }
+                    d = d+2;
+                    celdaTotales.append(icon);
+                    fila.append(celdaTotales);
+                    celdaTotales.classList.add("iconsdiv");
+                }
+            }
+            else if (h==1){
+                    var img1 = document.createElement("img");
+                    img1.src = arrayInfo[j][1][1];
+                    img1.className = "imgTeam";
+                    celdaTotales.append(img1);
+                    celdaTotales.append(arrayInfo[j][h][0])
+                    fila.append(celdaTotales);
+            }
+            else{
+                celdaTotales.append(arrayInfo[j][h]);
+                fila.append(celdaTotales);
+            }
+        }
+        tbody.append(fila);
+    }
 }
 

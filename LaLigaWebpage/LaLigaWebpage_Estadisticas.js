@@ -104,14 +104,13 @@ for (j=0;j<array.length;j++){
 
 //CREO DOS ARRAYS NUEVAS ORDENANDO UNA DE MAYOR A MENOR AVG Y OTRA DE MENOR A MAYOR GOLES EN CONTRA COMO VISITANTE
 
-var arrayaverage = Array.from(array);   //DEBO "COPIAR" LA ARRAY ANTES DE ORDENARLA MEDIANTE Array.from PARA QUE NO AFECTE A LA ORIGINAL....  <-------
+var arrayaverage = Array.from(array);    //DEBO "COPIAR" LA ARRAY ANTES DE ORDENARLA MEDIANTE Array.from PARA QUE NO AFECTE A LA ORIGINAL....  <-------
 arrayaverage.sort(function(a, b){return b.avg-a.avg});
-console.log(arrayaverage);
 
 
 var arraygolesCvisit = Array.from(array);
 arraygolesCvisit.sort(function(a, b){return a.goalsCvisitTeam-b.goalsCvisitTeam});
-console.log(arraygolesCvisit);
+
 
 
 //EJECUTO LA FUNCION PARA CREAR LAS TABLAS CON LAS ARRAY ORDENADAS
@@ -126,7 +125,7 @@ statisticsTable(arrayaverage, arraygolesCvisit)
 
 //CREO LAS TABLAS PARA MOSTRAR LOS 5 PRIMEROS DE ARRAYAVERAGE Y ARRAYGOLESCVISIT
 
-function statisticsTable(arrayOrdenadaAverage, arrayOrdenadaGolesCVisit){
+function statisticsTable(orderedArrayAverage, orderedArrayGolesCVisit){
 
 var tbodyaverage = document.getElementById("tablebodyestadistica1");
 var tbodygoalsCvisit = document.getElementById("tablebodyestadistica2")
@@ -137,10 +136,10 @@ for (r=0;r<5;r++){
     var filagoalsCvisit = document.createElement("tr");
 
     var imgaverage = document.createElement("img");
-    imgaverage.src = "https://crests.football-data.org/" + arrayOrdenadaAverage[r].id  + ".svg";
+    imgaverage.src = "https://crests.football-data.org/" + orderedArrayAverage[r].id  + ".svg";
     imgaverage.style.width = "30px"
     var imggoalsCvisit = document.createElement("img");
-    imggoalsCvisit.src = "https://crests.football-data.org/" + arrayOrdenadaGolesCVisit[r].id  + ".svg";
+    imggoalsCvisit.src = "https://crests.football-data.org/" + orderedArrayGolesCVisit[r].id  + ".svg";
     imggoalsCvisit.style.width = "30px"
 
 
@@ -157,22 +156,22 @@ for (r=0;r<5;r++){
             celdagoalsCvisit.appendChild(textoCeldagoalsCvisit);
         }
         if (t==1){
-            textoCeldaaverage = document.createTextNode(arrayOrdenadaAverage[r].name);
-            textoCeldagoalsCvisit = document.createTextNode(arrayOrdenadaGolesCVisit[r].name);
+            textoCeldaaverage = document.createTextNode(orderedArrayAverage[r].name);
+            textoCeldagoalsCvisit = document.createTextNode(orderedArrayGolesCVisit[r].name);
             celdaaverage.appendChild(imgaverage);
             celdaaverage.appendChild(textoCeldaaverage);
             celdagoalsCvisit.appendChild(imggoalsCvisit);
             celdagoalsCvisit.appendChild(textoCeldagoalsCvisit);
         }
         if (t==2){
-            textoCeldaaverage = document.createTextNode((arrayOrdenadaAverage[r].avg).toFixed(2));
-            textoCeldagoalsCvisit = document.createTextNode(arrayOrdenadaGolesCVisit[r].goalsCvisitTeam);
+            textoCeldaaverage = document.createTextNode((orderedArrayAverage[r].avg).toFixed(2));
+            textoCeldagoalsCvisit = document.createTextNode(orderedArrayGolesCVisit[r].goalsCvisitTeam);
             celdaaverage.appendChild(textoCeldaaverage);
             celdagoalsCvisit.appendChild(textoCeldagoalsCvisit);
         }
         if (t==3){
-            textoCeldaaverage = document.createTextNode(arrayOrdenadaAverage[r].matches);
-            textoCeldagoalsCvisit = document.createTextNode(arrayOrdenadaGolesCVisit[r].matches);
+            textoCeldaaverage = document.createTextNode(orderedArrayAverage[r].matches);
+            textoCeldagoalsCvisit = document.createTextNode(orderedArrayGolesCVisit[r].matches);
             celdaaverage.appendChild(textoCeldaaverage);
             celdagoalsCvisit.appendChild(textoCeldagoalsCvisit);
         }

@@ -15,8 +15,8 @@ function getDataFetch(){
     })
     .then(data => {
         hideLoader();
-        addOptions("datalist", listaEquipos(data));
-        tablaResultados(data);
+        addOptions("datalist", teamList(data));
+        resultTable(data);
     })
 }
 
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 document.getElementById("searchbutton").addEventListener("click", function(e){
     e.preventDefault();  //evita que se recargue la página al filtrar por estar en formulario <form>los inputs de filtrado
-    tablaResultados(matches);
+    resultTable(matches);
 })
 document.getElementById("resetbutton").addEventListener("click", function(e){
     e.preventDefault();
@@ -66,7 +66,7 @@ function resetfilters(){
 
 //FUNCIÓN QUE CREA UNA ARRAY CON EL ID Y NOMBRE DE TODOS LOS EQUIPOS QUE HAY EN DATA
 
-function listaEquipos(data){
+function teamList(data){
     var arrayEquipos = [];
     for (i=0;i<data.matches.length;i++){
 
@@ -103,10 +103,10 @@ function addOptions(selectId, array){
 }
 
 
-//FUNCIÓN QUE FILTRA LA INFORMACIÓN DEL DOCUMENTO. ESTA FUNCIÓN ES LLAMADA DENTRO DE LA FUNCIÓN tablaResultado()
+//FUNCIÓN QUE FILTRA LA INFORMACIÓN DEL DOCUMENTO. DEVUELVE ARRAY FILTRADA. ESTA FUNCIÓN ES LLAMADA DENTRO DE LA FUNCIÓN tablaResultado()
 
 function filters(data){
-    console.log("emppieza a filtrar")
+
     //Creo/vacío la variable filteredTable y tomo referencias de elementos del html
     
     var filteredTable = [];
@@ -114,31 +114,36 @@ function filters(data){
 
 
     //Si no hay texto que buscar o "todos los partidos" la info será todo el doc y se deshabilitan dos radiobuttons.  Si hay texto me filtra con los nombres que contienen el texto
-    if (textInput == "" || textInput == "Todos los equipos"){
+    if (textInput == "" || textInput == "todos los equipos"){
         filteredTable = data.matches;
     }
     else {
         filteredTable = data.matches.filter(equipo => equipo.homeTeam.name.toLowerCase().includes(textInput) || equipo.awayTeam.name.toLowerCase().includes(textInput));
-        console.log(filteredTable)
     }
 
     
-    //Copruebo si hay un radio seleccionado y filtro la array previa según el caso. Si no hay texto o "todos los partidos" salta alerta y la array será la previa; todo el doc.
-    
-    if (document.getElementById("ganados").checked == true){
-        if (textInput == "" || textInput == "todos los equipos"){alert("Selecciona un equipo de fútbol");return filteredTable};
+     //Copruebo si hay un radiobutton seleccionado y filtro la array previa según el caso. Si no hay texto o "todos los partidos" salta alerta y la array será la previa (todo el doc).
+
+    const radioganados = document.getElementById("ganados");
+    const radioperdidos = document.getElementById("perdidos");
+    const radioempatados = document.getElementById("empatados");
+    const radiopendientes = document.getElementById("pendientes");
+    const nothingToFilter = textInput == "" || textInput == "todos los equipos";
+   
+    if (radioganados.checked == true){
+        if (nothingToFilter){alert("Selecciona un equipo de fútbol");return filteredTable};
         filteredTable = filteredTable.filter(equipo => (equipo.homeTeam.name.toLowerCase().includes(textInput) && equipo.score.winner == "HOME_TEAM") || equipo.awayTeam.name.toLowerCase().includes(textInput) && equipo.score.winner == "AWAY_TEAM");
     }
-    else if (document.getElementById("perdidos").checked == true){
-        if (textInput == "" || textInput == "todos los equipos"){alert("Selecciona un equipo de fútbol");return filteredTable};
+    else if (radioperdidos.checked == true){
+        if (nothingToFilter){alert("Selecciona un equipo de fútbol");return filteredTable};
         filteredTable = filteredTable.filter(equipo => (equipo.homeTeam.name.toLowerCase().includes(textInput) && equipo.score.winner == "AWAY_TEAM") || equipo.awayTeam.name.toLowerCase().includes(textInput) && equipo.score.winner == "HOME_TEAM");
     }
-    else if (document.getElementById("empatados").checked == true){
-        if (textInput == "" || textInput == "todos los equipos"){alert("Selecciona un equipo de fútbol");return filteredTable};
+    else if (radioempatados.checked == true){
+        if (nothingToFilter){alert("Selecciona un equipo de fútbol");return filteredTable};
         filteredTable = filteredTable.filter(equipo => equipo.score.winner == "DRAW");
     }
-    else if (document.getElementById("pendientes").checked == true){
-        if (textInput == "" || textInput == "todos los equipos"){alert("Selecciona un equipo de fútbol");return filteredTable};
+    else if (radiopendientes.checked == true){
+        if (nothingToFilter){alert("Selecciona un equipo de fútbol");return filteredTable};
         filteredTable = filteredTable.filter(equipo => equipo.status == "SCHEDULED");
     }
 
@@ -148,15 +153,14 @@ return filteredTable
 
 //FUNCIÓN QUE CREA LA TABLA DE RESULTADOS A PARTIR DEL DOCUMENTO ORIGINAL. FILTRA LA INFORMACIÓN MEDIANTE LA FUNCIÓN filters()
 
-function tablaResultados(data){
+function resultTable(data){
 
     //Vacío el contenido del tbody de la tabla
     document.getElementById("tablebody_resultados").innerHTML = "";
 
 
-    //filtro el documento con la funci´n filters y lo guardo en tableinfo
+    //filtro el documento con la función filters y lo guardo en tableinfo
     var tableinfo = filters(data)
-    console.log(tableinfo)
         
 
     //Obtengo referencia del elemento tbody
@@ -169,11 +173,11 @@ function tablaResultados(data){
 
         var img1 = document.createElement("img");
         img1.src = "https://crests.football-data.org/" + tableinfo[i].homeTeam.id  + ".svg";
-        img1.style.width = "40px";
-        img1.id = "img1";
+        img1.className = "imgTeam";
+        
         var img2 = document.createElement("img");
         img2.src = "https://crests.football-data.org/" + tableinfo[i].awayTeam.id  + ".svg";
-        img2.style.width = "40px";
+        img2.className = "imgTeam";
 
 
 
@@ -193,7 +197,7 @@ function tablaResultados(data){
             if (j==2){
                 textoCelda = document.createTextNode(tableinfo[i].score.fullTime.homeTeam + " - " + tableinfo[i].score.fullTime.awayTeam);
                 if (tableinfo[i].score.fullTime.homeTeam == null){
-                    textoCelda = document.createTextNode("Pendiente");
+                    textoCelda = document.createTextNode("Prox");
                 }
                 celda.appendChild(textoCelda);
             }
@@ -212,13 +216,5 @@ function tablaResultados(data){
     }
 }
 
-
-
-
-
-//ejecuto addOptions para crear la lista desplegable, seleccionando como parámetro el objeto html y la lista de equipos obtenida por ejecutar la funcion listaEquipos
-
-
-//ejecuto tablaResultados con el documento como parámetro para crear la tabla. Dentro de la función pasará por los filtros.
 
 
