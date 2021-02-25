@@ -18,7 +18,9 @@ h1{
 h1, h2{
     margin-left: 20px;
 }
-
+a{
+    text-decoration: none;
+}
 
 
 /*--------------NAVEGACIÓN-------------*/
@@ -29,11 +31,27 @@ header{
     background-color: rgb(27, 32, 26);
     width: 100%;
 }
+main{
+    background: linear-gradient(to top, rgba(255,255,255,0),rgba(255,255,255,1) 60%), url("../img/background.jpg");
+    background-size:cover;
+    height: 850px;
+}
+.mainHome_links_div{
+    justify-content: space-around;
+    height: 650px;
+    margin-top: 100px;
+}
+.imgHomeLink{
+    box-shadow: 10px 15px 10px grey;
+}
+.divLink:hover{
+    transform: scale(1.05);
+}
 .laliga_logo{
     width: 100px;
 }
 .navbar{
-    background: linear-gradient(to right, rgb(27, 32, 26) 60%, rgba(1, 197, 1, 0.74));
+    background: linear-gradient(to right, rgb(27, 32, 26) 60%, rgba(0, 199, 90, 0.74));
 }
 .tableslinks > li > a{
     color: black;
@@ -51,6 +69,35 @@ form{
 .radiodiv{
     min-width: fit-content;
 }
+.divTeams{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(150px, auto);
+    margin-top: 80px;
+}
+.divTeams >a > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.divTeams >a > div:hover{
+transform: scale(1.15);
+}
+
+.divTeams > a:nth-child(-n+21){
+    color: rgb(15, 15, 15);
+}
+.divTeams > a:nth-child(-n+16){
+    color: rgb(59, 59, 59);
+}
+.divTeams > a:nth-child(-n+10){
+    color: rgb(99, 99, 99);
+}
+.divTeams > a > div > img{
+    width: 80px;
+    margin-bottom: 20px;
+}
 
 
 /*----------------TABLAS--------------*/
@@ -60,9 +107,10 @@ form{
 }
 .tabledivint{
     width: 100%;
-    height: 500px;
+    max-height: 475px;
     overflow: scroll;
     overflow-x:auto;
+    box-shadow: 5px 10px 20px rgb(71, 71, 71);
 }
 .divtwotables > .tablediv{
     /* width: 40%; */
@@ -74,9 +122,13 @@ form{
 }
 
 
+th{
+    position: sticky; 
+    top: 0;
+}
 table{
-    width: 100%;
     height: 100%;
+    background-color: rgba(255, 255, 255, 0.507);
 }
 .tableclasif{
     width: 1275px;
@@ -89,7 +141,7 @@ table{
 }
 .tableresult > tbody > tr > td:nth-child(1), .tableresult > tbody > tr > td:nth-child(5){
     width: 20%;
-    background-color: rgba(65, 64, 64, 0.288);
+    background-color: rgba(83, 83, 83, 0.308);
 }
 .tableresult > tbody > tr > td:nth-child(3){
     text-align: center;
@@ -99,14 +151,26 @@ table{
 .tableresult > tbody > tr > td:nth-child(2){
     text-align: right;
     font-size: 18px;
+    width: 26%;
 }
 .tableresult > tbody > tr > td:nth-child(4){
     text-align: left;
     font-size: 18px;
+    width: 26%;
 }
+
 .legend{
+    display: flex;
+    width: 100%;
     height: 40px;
-    margin-top: 10px;
+    padding-top: 8px;
+    background-color: rgba(255, 255, 255, 0.781);
+    border-top: 2px solid black;
+    box-shadow: 5px 10px 20px rgb(71, 71, 71);
+    z-index: 1;
+}
+.legend > p{
+    margin-right: 20px;
 }
 .legend > div{
     margin-right: 10px;
@@ -127,14 +191,21 @@ table{
 
 
 #loaderimg, #loaderimg1{
-    margin-top: 16%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-left: auto;
+    margin-right: auto;
     width: 70px;
     height: 70px;
     animation: rotation 1s infinite linear;
     display: none;
 }
+
 #loaderimg.display, #loaderimg1.display{
     display: block;
+}
+#loaderteams{
+    
 }
 @keyframes rotation {
     from {
@@ -193,9 +264,13 @@ table{
         width: 16%;
     }
 
-    .tableresult > thead > tr > th:nth-child(1),.tableresult > thead > tr > th:nth-child(5), .tableresult > tbody > tr > td:nth-child(1), .tableresult > tbody > tr > td:nth-child(5){
+    .tableresult > thead > tr > th:nth-child(1),
+    .tableresult > thead > tr > th:nth-child(5),
+    .tableresult > tbody > tr > td:nth-child(1),
+    .tableresult > tbody > tr > td:nth-child(5){
         display: none;
     }
+    
     .icons, .legend >div > img{
         width: 15px;
         height: 15px;
@@ -238,15 +313,31 @@ table{
     .tablehead > p{
         width: 100%;
     }
+    main{
+        height: 100%;
+    }
     .divtwotables > .tablediv > .tabledivint{
         height: 300px;
+        overflow: scroll;
+        overflow-y: hidden;
+    }
+    .mainHome_links_div{
+        height: 550px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .mainHome_links_div > div{
+        flex-direction: column;
+        align-items: center;
+    }
+    .divLink{
+        width: 80%;
+    }
+    .divTwoLink > div{
+        margin-bottom: 50px;
     }
     .tableestadistica{
         width: 600px;
-    }
-    .divtwotables > .tablediv > .tabledivint{
-        overflow: scroll;
-        overflow-y: hidden;
     }
     .tableresult > tbody > tr > td:nth-child(3){
         width: 8%;
@@ -256,4 +347,52 @@ table{
     .imgTeam{
         width: 25px;
     }
+
+    .legend{
+        display: none;
+    }
+    .divTeams{
+        width: 100%;
+    }
+    .divTeams{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(150px, auto);
+    margin-top: 80px;
+    }
+    .divTeams >a > div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .divTeams >a > div:hover{
+    transform: scale(1.15);
+    }
+
+    .divTeams > a:nth-child(-n+21){
+        color: rgb(15, 15, 15);
+    }
+    .divTeams > a:nth-child(-n+16){
+        color: rgb(59, 59, 59);
+    }
+    .divTeams > a:nth-child(-n+10){
+        color: rgb(99, 99, 99);
+    }
+    .divTeams > a > div > img{
+        width: 80px;
+        margin-bottom: 20px;
+    }
+
+    .divTeams{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .divTeams >a > div{
+        font-size: 16px;
+    }
+
+    .divTeams > a > div > img{
+        width: 80px;
+    }
+
 }

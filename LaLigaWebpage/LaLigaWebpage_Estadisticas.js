@@ -105,11 +105,17 @@ for (j=0;j<array.length;j++){
 //CREO DOS ARRAYS NUEVAS ORDENANDO UNA DE MAYOR A MENOR AVG Y OTRA DE MENOR A MAYOR GOLES EN CONTRA COMO VISITANTE
 
 var arrayaverage = Array.from(array);    //DEBO "COPIAR" LA ARRAY ANTES DE ORDENARLA MEDIANTE Array.from PARA QUE NO AFECTE A LA ORIGINAL....  <-------
-arrayaverage.sort(function(a, b){return b.avg-a.avg});
+arrayaverage.sort(function(a, b){
+    return b.avg-a.avg;
+});
 
 
 var arraygolesCvisit = Array.from(array);
-arraygolesCvisit.sort(function(a, b){return a.goalsCvisitTeam-b.goalsCvisitTeam});
+arraygolesCvisit.sort(function(a, b){
+    var x =  a.goalsCvisitTeam-b.goalsCvisitTeam;
+    if (x==0){x = b.matches-a.matches};   //Si tienen mismos golesCvisitTeam se ordena según > partidos ganados
+    return x;
+});
 
 
 

@@ -25,7 +25,7 @@ function getDataFetch(){
 //ASIGNACIÓN DE FUNCIONES A BOTONES
 document.addEventListener("DOMContentLoaded", function() {
     getDataFetch();
-  });
+});
 document.getElementById("searchbutton").addEventListener("click", function(e){
     e.preventDefault();  //evita que se recargue la página al filtrar por estar en formulario <form>los inputs de filtrado
     resultTable(matches);
@@ -33,7 +33,11 @@ document.getElementById("searchbutton").addEventListener("click", function(e){
 document.getElementById("resetbutton").addEventListener("click", function(e){
     e.preventDefault();
     resetfilters();
+    hideAlert();
 })
+document.getElementById("linkClose").addEventListener("click", function(){
+    hideAlert();
+});
 
 
 
@@ -61,6 +65,18 @@ function resetfilters(){
         radiobuttons[value].checked = false;
     }
 }
+
+
+//FUNCIONES PARA MOSTRAR/OCULTAR ALERTA
+
+function showAlert(){
+    const alert = document.getElementById("alert");
+    alert.style.display = "block";
+}
+
+function hideAlert(){
+    const alert = document.getElementById("alert");
+    alert.style.display ="none"}
 
 
 
@@ -103,6 +119,7 @@ function addOptions(selectId, array){
 }
 
 
+
 //FUNCIÓN QUE FILTRA LA INFORMACIÓN DEL DOCUMENTO. DEVUELVE ARRAY FILTRADA. ESTA FUNCIÓN ES LLAMADA DENTRO DE LA FUNCIÓN tablaResultado()
 
 function filters(data){
@@ -128,22 +145,25 @@ function filters(data){
     const radioperdidos = document.getElementById("perdidos");
     const radioempatados = document.getElementById("empatados");
     const radiopendientes = document.getElementById("pendientes");
+    
     const nothingToFilter = textInput == "" || textInput == "todos los equipos";
    
+   
+
     if (radioganados.checked == true){
-        if (nothingToFilter){alert("Selecciona un equipo de fútbol");return filteredTable};
+        if (nothingToFilter){showAlert();return filteredTable};
         filteredTable = filteredTable.filter(equipo => (equipo.homeTeam.name.toLowerCase().includes(textInput) && equipo.score.winner == "HOME_TEAM") || equipo.awayTeam.name.toLowerCase().includes(textInput) && equipo.score.winner == "AWAY_TEAM");
     }
     else if (radioperdidos.checked == true){
-        if (nothingToFilter){alert("Selecciona un equipo de fútbol");return filteredTable};
+        if (nothingToFilter){showAlert();return filteredTable};
         filteredTable = filteredTable.filter(equipo => (equipo.homeTeam.name.toLowerCase().includes(textInput) && equipo.score.winner == "AWAY_TEAM") || equipo.awayTeam.name.toLowerCase().includes(textInput) && equipo.score.winner == "HOME_TEAM");
     }
     else if (radioempatados.checked == true){
-        if (nothingToFilter){alert("Selecciona un equipo de fútbol");return filteredTable};
+        if (nothingToFilter){showAlert();return filteredTable};
         filteredTable = filteredTable.filter(equipo => equipo.score.winner == "DRAW");
     }
     else if (radiopendientes.checked == true){
-        if (nothingToFilter){alert("Selecciona un equipo de fútbol");return filteredTable};
+        if (nothingToFilter){showAlert();return filteredTable};
         filteredTable = filteredTable.filter(equipo => equipo.status == "SCHEDULED");
     }
 
@@ -191,7 +211,7 @@ function resultTable(data){
             }
             if (j==1){
                 textoCelda = document.createTextNode(tableinfo[i].homeTeam.name);
-                celda.appendChild(textoCelda);
+                celda.append(textoCelda);
                 celda.append(img1);
             }
             if (j==2){
@@ -199,18 +219,18 @@ function resultTable(data){
                 if (tableinfo[i].score.fullTime.homeTeam == null){
                     textoCelda = document.createTextNode("Prox");
                 }
-                celda.appendChild(textoCelda);
+                celda.append(textoCelda);
             }
             if (j==3){
                 celda.append(img2);
                 textoCelda = document.createTextNode(tableinfo[i].awayTeam.name);
-                celda.appendChild(textoCelda);
+                celda.append(textoCelda);
             }
             if (j==4){
                 textoCelda = document.createTextNode(tableinfo[i].utcDate.slice(11,16));
                 celda.append(textoCelda);
             }
-            fila.appendChild(celda);
+            fila.append(celda);
         }
         tbody.append(fila);
     }
