@@ -17,7 +17,7 @@ Las características principales de la página web son las siguientes:
 
 ### Casos de uso
 
-![Casos de uso](docs/laliga_diagram.png)
+![Casos de uso](/LaLigaWebpage/docs/laliga_diagram.png)
 
 
 ## Descripción técnica
