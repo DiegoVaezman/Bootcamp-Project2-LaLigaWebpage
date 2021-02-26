@@ -113,7 +113,7 @@ arrayaverage.sort(function(a, b){
 var arraygolesCvisit = Array.from(array);
 arraygolesCvisit.sort(function(a, b){
     var x =  a.goalsCvisitTeam-b.goalsCvisitTeam;
-    if (x==0){x = b.matches-a.matches};   //Si tienen mismos golesCvisitTeam se ordena según > partidos ganados
+    if (x==0){x = b.matches-a.matches};   //Si tienen mismos golesCvisitTeam se ordena según > partidos ganados.
     return x;
 });
 

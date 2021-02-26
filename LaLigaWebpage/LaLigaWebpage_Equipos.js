@@ -40,6 +40,8 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
 
+//FUNCIÓN QUE MONTA LOS ENLACES A LOS EQUIPOS.
+
 function createTeams(data){
 
     const divTeams = document.getElementById("divTeams");

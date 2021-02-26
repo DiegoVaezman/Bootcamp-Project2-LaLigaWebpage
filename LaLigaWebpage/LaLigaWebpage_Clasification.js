@@ -52,7 +52,7 @@ function tablaClasificacion(data){
     var tbody = document.getElementById("tablebody")
     var arrayInfo = [];
 
-    //Agrego a la array la información que voy a necesitar.
+    //Agrego a la array la información que voy a necesitar
 
     for (var i = 0; i < data.standings[0].table.length; i++) {
 

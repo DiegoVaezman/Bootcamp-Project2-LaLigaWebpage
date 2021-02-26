@@ -130,7 +130,7 @@ function filters(data){
     var textInput = document.getElementById("searchText").value.toLowerCase();
 
 
-    //Si no hay texto que buscar o "todos los partidos" la info será todo el doc y se deshabilitan dos radiobuttons.  Si hay texto me filtra con los nombres que contienen el texto
+    //Si no hay texto que buscar o "todos los partidos" la info será todo el doc y se deshabilitan dos radiobuttons.  Si hay texto me filtra con los nombres que contienen el texto.
     if (textInput == "" || textInput == "todos los equipos"){
         filteredTable = data.matches;
     }

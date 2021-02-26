@@ -1,4 +1,4 @@
-# La Liga Webpage v0.1
+# La Liga Webpage v1.0
 
 ![Laliga_logo](/img/laliga_logo.png)
 
