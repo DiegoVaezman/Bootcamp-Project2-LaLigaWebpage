@@ -1,6 +1,6 @@
 # La Liga Webpage v0.1
 
-![Laliga_logo](img/laliga_logo.png =550x200)
+![Laliga_logo](/img/laliga_logo.png)
 
 La Liga Resultados es una página web de consulta de información de La Liga. Pertenece al segundo proyecto del bootcamp Let's Coder de programación. 
 
@@ -17,7 +17,7 @@ Las características principales de la página web son las siguientes:
 
 ### Casos de uso
 
-![Casos de uso](img/laliga_diagram.png =400x350)
+![Casos de uso](/img/laliga_diagram.png)
 
 
 ## Descripción técnica
@@ -44,7 +44,7 @@ Las características principales de la página web son las siguientes:
 
 ## Versiones
 
-v0.1 Proyecto presentado
+V1.0 Proyecto presentado.
 
 
 ## TO-DO
