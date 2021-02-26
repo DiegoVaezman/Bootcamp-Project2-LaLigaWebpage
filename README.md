@@ -7,13 +7,14 @@ La Liga Resultados es una página web de consulta de información de La Liga. Pe
 
 ## Descripción Funcional
 
-A través de La Liga Resultados el usuario puede consultar de manera actualizada los resultados de los partidos acontecidos hasta la fecha en la temporada actual, la clasificación de los equipos de fútbol y un ranking de estadísticas de juego de cada equipo. Además incluye un filtro en la visualización de los resultados donde se puede seleccionar la información para un equipo concreto.
+A través de La Liga Resultados el usuario puede consultar de manera actualizada los resultados de los partidos acontecidos hasta la fecha en la temporada actual, la clasificación de los equipos de fútbol y un ranking de estadísticas de juego de cada equipo. También incluye un filtro en la visualización de los resultados donde se puede seleccionar la información para un equipo de fútbol concreto y mostrar los partidos ganados, perdidos, empatados o pendientes. Además, muestra un panel con todos los equipos de La liga y enlace a sus páginas oficiales.
 
 Las características principales de la página web son las siguientes:
 - Visualización de los resultados de todos los partidos de la temporada(jugados y pendientes) junto con fecha y hora.
 - Filtrado de todos los partidos para un equipo concreto y selección de parámetros como partidos ganados, perdidos, empatados y pendientes.
 - Visualización de la clasificación actual de la temporada con información acumulada de cada equipo.
 - Visualización de dos rankings de cinco mejores equipos según estadísticas de los resultados: Mejor media de goles a favor y Menos goles en contra como visitante.
+- Enlace a las páginas oficiales de los equipos de fútbol.
 
 ### Casos de uso
 
@@ -38,7 +39,7 @@ Las características principales de la página web son las siguientes:
 ## Tecnologías 
 
 - HTML
-- CSS (Bootstrap)
+- CSS, Bootstrap
 - Vanilla JS
 
 
