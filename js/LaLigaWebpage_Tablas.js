@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 document.getElementById("searchbutton").addEventListener("click", function(e){
     e.preventDefault();  //evita que se recargue la página al filtrar por estar en formulario <form>los inputs de filtrado
-    resultTable(matches);
+    resultTable(getDataFetch());
 })
 document.getElementById("resetbutton").addEventListener("click", function(e){
     e.preventDefault();
