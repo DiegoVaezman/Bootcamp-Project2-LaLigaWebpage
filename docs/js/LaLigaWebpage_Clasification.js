@@ -88,15 +88,15 @@ function tablaClasificacion(data){
                     var ultimos = arrayInfo[j][10];
 
                     if (ultimos[d]=="D"){
-                        icon.src="../img/icon_grey.svg";
+                        icon.src="img/icon_grey.svg";
                         icon.className = "icons";
                     }
                     if (ultimos[d]=="W"){
-                        icon.src="../img/icon_green.svg";
+                        icon.src="img/icon_green.svg";
                         icon.className = "icons"
                     }
                     if (ultimos[d]=="L"){
-                        icon.src="../img/icon_red.svg";
+                        icon.src="img/icon_red.svg";
                         icon.className = "icons"
                     }
                     d = d+2;
