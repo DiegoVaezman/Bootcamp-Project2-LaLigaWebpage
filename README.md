@@ -4,6 +4,9 @@
 
 La Liga Resultados es una página web de consulta de información de La Liga. Pertenece al segundo proyecto del bootcamp Let's Coder de programación. 
 
+**Puedes acceder a la web a través de este enlace [LaLiga-webpage](https://vaezman.netlify.app/laliga_webpage/index.html)**
+<br>
+<br>
 
 ## Descripción Funcional
 
@@ -15,10 +18,14 @@ Las características principales de la página web son las siguientes:
 - Visualización de la clasificación actual de la temporada con información acumulada de cada equipo.
 - Visualización de dos rankings de cinco mejores equipos según estadísticas de los resultados: Mejor media de goles a favor y Menos goles en contra como visitante.
 - Enlace a las páginas oficiales de los equipos de fútbol.
+<br>
+
 
 ### Casos de uso
 
 ![Casos de uso](docs/img/laliga_diagram.png)
+
+<br>
 
 
 ## Descripción técnica
@@ -34,6 +41,7 @@ Las características principales de la página web son las siguientes:
 - statisticsTable(orderedArrayAverage, orderedArrayGolesCVisit) -> Toma como parámetros las arrays generadas en estadística(data) y monta las tablas con los datos. Se ejecuta en estadística(data).
 
 - createTeams(data) Toma como parámetro el objeto .jeson transformado a .js referente a "teams". Genera los enlaces a los distintos equipos de fútbol y se muestran en pantalla.
+<br>
 
 
 ## Tecnologías 
@@ -41,12 +49,13 @@ Las características principales de la página web son las siguientes:
 - HTML5
 - CSS3, Bootstrap
 - Vanilla JS
-
+<br>
 
 ## Versiones
 
 V1.0 Proyecto presentado.
-
+<br>
+<br>
 
 ## TO-DO
 
