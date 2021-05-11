@@ -38,8 +38,8 @@ Las características principales de la página web son las siguientes:
 
 ## Tecnologías 
 
-- HTML
-- CSS, Bootstrap
+- HTML5
+- CSS3, Bootstrap
 - Vanilla JS
 
 
