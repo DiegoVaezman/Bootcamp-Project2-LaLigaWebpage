@@ -50,7 +50,6 @@ V1.0 Proyecto presentado.
 
 ## TO-DO
 
-- Refactoring.
 - Mejorar apariencia.
 - Mejorar responsive.
 
